@@ -1,7 +1,8 @@
 name: rfid_reader
 description: "A new Flutter project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/601652267/rfid_reader.git
+author: 601652267<601652267@qq.com>
 
 environment:
   sdk: '>=3.2.2 <4.0.0'
