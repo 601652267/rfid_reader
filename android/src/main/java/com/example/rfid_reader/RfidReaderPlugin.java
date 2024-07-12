@@ -133,21 +133,27 @@ public class RfidReaderPlugin implements FlutterPlugin, MethodCallHandler, Activ
         }
         try {
             mSerialPort = new SerialPort(new File("/dev/ttyS4"), 115200, 0);
-            mRFIDReaderHelper = RFIDReaderHelper.getDefaultHelper();
-            mRFIDReaderHelper.setReader(mSerialPort.getInputStream(), mSerialPort.getOutputStream(), new ReaderDataPackageParser(), new ReaderDataPackageProcess());
-            mRFIDReaderHelper.registerObserver(mObserver);
-            m_curReaderSetting = ReaderSetting.newInstance();
-            mBtRepeat = (byte) 1;
-            mBtSession = (byte) (mPos1 & 0xFF);
-            mBtTarget = (byte) (mPos2 & 0xFF);
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                mRFIDReaderHelper = RFIDReaderHelper.getDefaultHelper();
+                mRFIDReaderHelper.setReader(mSerialPort.getInputStream(), mSerialPort.getOutputStream(), new ReaderDataPackageParser(), new ReaderDataPackageProcess());
+                mRFIDReaderHelper.registerObserver(mObserver);
+                m_curReaderSetting = ReaderSetting.newInstance();
+                mBtRepeat = (byte) 1;
+                mBtSession = (byte) (mPos1 & 0xFF);
+                mBtTarget = (byte) (mPos2 & 0xFF);
+            } catch (Exception e) {
+                return false;
+            }
+            if (!ModuleManager.newInstance().setUHFStatus(true)) {
+                System.out.println("UHF RFID power on failure,may you open in other" +
+                        " Process and do not exit it");
+
+                return false;
+            }
+        } catch (Exception error) {
             return false;
         }
-        if (!ModuleManager.newInstance().setUHFStatus(true)) {
-            throw new RuntimeException("UHF RFID power on failure,may you open in other" +
-                    " Process and do not exit it");
-        }
+
         return true;
     }
 
