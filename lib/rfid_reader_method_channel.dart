@@ -30,7 +30,7 @@ class MethodChannelRfidReader extends RfidReaderPlatform {
     methodChannel.setMethodCallHandler((MethodCall call) async {});
     EventChannel('my_key_event_channel').receiveBroadcastStream().listen((event) {
       // 处理接收到的广播消息
-      resolve({'message':event.toString()});
+      resolve(event.toString());
     });
   }
 
