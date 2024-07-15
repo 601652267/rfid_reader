@@ -227,7 +227,7 @@ public class RfidReaderPlugin implements FlutterPlugin, MethodCallHandler, Activ
             result.success("true");
         } else if (call.method.equals("changeType")) {
             String typeStr = call.argument("type");
-            if (typeStr == null) {
+            if (typeStr != null) {
                 type = typeStr;
             }
             result.success("true");
