@@ -51,5 +51,22 @@ class MethodChannelRfidReader extends RfidReaderPlatform {
   }
 
 
+  Future<void> useRFID() async {
+    await methodChannel.invokeMethod<String>('useRFID', {});
+  }
+
+  Future<void> useBLUE() async {
+    await methodChannel.invokeMethod<String>('useBLUE', {});
+  }
+
+  Future<void> userDefault() async {
+    await methodChannel.invokeMethod<String>('default', {});
+  }
+
+  Future<void> onKeyUp() async {
+    await methodChannel.invokeMethod<String>('onKeyUp', {});
+  }
+
+
 
 }

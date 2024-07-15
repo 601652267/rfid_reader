@@ -47,6 +47,24 @@ abstract class RfidReaderPlatform extends PlatformInterface {
     throw UnimplementedError('setPowerHeight() has not been implemented.');
   }
 
+
+  Future<void> useRFID() async {
+    throw UnimplementedError('useRFID() has not been implemented.');
+  }
+
+  Future<void> useBLUE() async {
+    throw UnimplementedError('useBLUE() has not been implemented.');
+  }
+
+  Future<void> userDefault() async {
+    throw UnimplementedError('userDefault() has not been implemented.');
+  }
+
+  Future<void> onKeyUp() async {
+    throw UnimplementedError('onKeyUp() has not been implemented.');
+  }
+
+
   void setUpMethodCallHandler(Function resolve) {
     _instance.setUpMethodCallHandler(resolve);
   }

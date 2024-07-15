@@ -237,7 +237,19 @@ public class RfidReaderPlugin implements FlutterPlugin, MethodCallHandler, Activ
         } else if (call.method.equals("setPowerHeight")) {
             this.setUHFPower(33);
             result.success(null); // 返回结果给 Flutter
-        } else {
+        } else if (call.method.equals("useRFID")) {
+            type = "rfid";
+            result.success("true");
+        } else if (call.method.equals("useBLUE")) {
+            type = "blue";
+            result.success("true");
+        } else if (call.method.equals("default")) {
+            type = "";
+            result.success("true");
+        } else if (call.method.equals("onKeyUp")) {
+            type = "onKeyUp";
+            result.success("true");
+        }  else {
             result.notImplemented();
         }
     }

@@ -41,4 +41,20 @@ class RfidReader {
   Future<void> setPowerHeight() async {
     RfidReaderPlatform.instance.setPowerHeight();
   }
+
+  Future<void> useRFID() async {
+    RfidReaderPlatform.instance.useRFID();
+  }
+
+  Future<void> useBLUE() async {
+    RfidReaderPlatform.instance.useBLUE();
+  }
+
+  Future<void> userDefault() async {
+    RfidReaderPlatform.instance.userDefault();
+  }
+
+  Future<void> onKeyUp() async {
+    RfidReaderPlatform.instance.onKeyUp();
+  }
 }
