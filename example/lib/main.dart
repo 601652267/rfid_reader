@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: GestureDetector(child: Text('Running on: $_platformVersion\n'),onTap: () {
             // _rfidReaderPlugin.setUHFPower({"power":28});
-            // _rfidReaderPlugin.setUHFPower({"type":""});
+            _rfidReaderPlugin.changeType({"type":""});
 
           },),
         ),
