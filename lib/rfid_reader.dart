@@ -1,9 +1,7 @@
-
 import 'rfid_reader_platform_interface.dart';
 import 'dart:io' show Platform;
 
 class RfidReader {
-
   // 是否能使用RFID功能
   bool couldUseRFID = false;
 
@@ -11,7 +9,7 @@ class RfidReader {
     return RfidReaderPlatform.instance.getPlatformVersion();
   }
 
-  Future<bool> init() async  {
+  Future<bool> init() async {
     if (Platform.isIOS) {
       couldUseRFID = false;
       return false;
@@ -36,5 +34,11 @@ class RfidReader {
     RfidReaderPlatform.instance.changeType(config);
   }
 
+  Future<void> setPowerLow() async {
+    RfidReaderPlatform.instance.setPowerLow();
+  }
 
+  Future<void> setPowerHeight() async {
+    RfidReaderPlatform.instance.setPowerHeight();
+  }
 }

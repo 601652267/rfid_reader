@@ -39,9 +39,15 @@ abstract class RfidReaderPlatform extends PlatformInterface {
     throw UnimplementedError('changeType() has not been implemented.');
   }
 
+  Future<void> setPowerLow() async {
+    throw UnimplementedError('setPowerLow() has not been implemented.');
+  }
+
+  Future<void> setPowerHeight() async {
+    throw UnimplementedError('setPowerHeight() has not been implemented.');
+  }
+
   void setUpMethodCallHandler(Function resolve) {
     _instance.setUpMethodCallHandler(resolve);
   }
-
-
 }

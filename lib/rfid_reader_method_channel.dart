@@ -38,6 +38,14 @@ class MethodChannelRfidReader extends RfidReaderPlatform {
     await methodChannel.invokeMethod<String>('setUHFPower', config);
   }
 
+  Future<void> setPowerLow() async {
+    await methodChannel.invokeMethod<String>('setPowerLow', {});
+  }
+
+  Future<void> setPowerHeight() async {
+    await methodChannel.invokeMethod<String>('setPowerHeight', {});
+  }
+
   Future<void> changeType(Map config) async {
     await methodChannel.invokeMethod<String>('changeType', config);
   }

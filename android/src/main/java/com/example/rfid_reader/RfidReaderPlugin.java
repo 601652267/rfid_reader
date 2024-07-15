@@ -231,6 +231,12 @@ public class RfidReaderPlugin implements FlutterPlugin, MethodCallHandler, Activ
                 type = typeStr;
             }
             result.success("true");
+        } else if (call.method.equals("setPowerLow")) {
+            this.setUHFPower(4);
+            result.success(null); // 返回结果给 Flutter
+        } else if (call.method.equals("setPowerHeight")) {
+            this.setUHFPower(33);
+            result.success(null); // 返回结果给 Flutter
         } else {
             result.notImplemented();
         }
