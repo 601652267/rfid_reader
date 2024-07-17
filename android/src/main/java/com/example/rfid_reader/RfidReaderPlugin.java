@@ -277,7 +277,8 @@ public class RfidReaderPlugin implements FlutterPlugin, MethodCallHandler, Activ
 
                 @Override
                 public boolean dispatchKeyEvent(KeyEvent event) {
-                    if (eventSink != null) {
+                    int keyCode = event.getKeyCode();
+                    if (eventSink != null && keyCode == 134) {
                         switch (event.getAction()) {
                             case KeyEvent.ACTION_DOWN:
                                 if (downLastKeyEventTime == event.getEventTime()) {
